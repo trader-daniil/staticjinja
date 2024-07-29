@@ -1,0 +1,5 @@
+FROM python:latest
+WORKDIR /opt/staticjinjaplus
+RUN git clone https://github.com/MrDave/StaticJinjaPlus.git
+RUN pip3 install -r StaticJinjaPlus/requirements.txt
+CMD python StaticJinjaPlus/main.py --srcpath templates_example/
