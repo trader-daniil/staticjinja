@@ -1,6 +1,5 @@
 FROM python:3.11-alpine
 WORKDIR /opt/staticjinjaplus
-RUN apk update && apk add git && rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/MrDave/StaticJinjaPlus.git
-RUN pip3 install -r StaticJinjaPlus/requirements.txt
-CMD python StaticJinjaPlus/main.py --srcpath StaticJinjaPlus/templates_example/
+ADD https://github.com/MrDave/StaticJinjaPlus.git /opt/staticjinjaplus
+RUN pip3 install --no-cache-dir -r requirements.txt
+CMD python main.py --srcpath templates_example/
